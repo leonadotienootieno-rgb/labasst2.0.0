@@ -1,0 +1,36 @@
+# Streamlit secrets - NEVER COMMIT
+.streamlit/secrets.toml
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.env
+venv/
+env/
+env*/
+
+# API Keys & sensitive data
+*.pem
+*.key
+credentials.json
+service-account.json
+config.yaml
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Payment processing
+stripe.log
