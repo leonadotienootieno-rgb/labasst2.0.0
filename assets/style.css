@@ -1,116 +1,316 @@
-/* Import Google Font */
+/* ============================================
+   Lab Assistant Pro - Responsive Styles
+   Optimized for Desktop & Mobile
+   ============================================ */
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-/* Global styles */
+/* --- GLOBAL --- */
 .stApp {
     font-family: 'Inter', sans-serif;
 }
 
-/* Main headers */
+/* --- MAIN HEADER --- */
 .main-header {
-    font-size: 2.5rem;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
     font-weight: 700;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    margin-bottom: 1rem;
 }
 
-/* Metric cards */
-.metric-card {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    padding: 1.5rem;
-    border-radius: 1rem;
-    color: white;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-/* Buttons */
+/* --- BUTTONS - Touch Friendly --- */
 .stButton > button {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white !important;
     border: none;
-    border-radius: 0.5rem;
-    padding: 0.5rem 1.5rem;
+    border-radius: 12px;
+    padding: 12px 20px;
     font-weight: 600;
-    transition: transform 0.2s;
-}
-
-.stButton > button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-}
-
-/* Form submit button */
-.stFormSubmitButton > button {
+    font-size: 16px;
+    min-height: 48px; /* Apple's recommended touch target */
     width: 100%;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stButton > button:active {
+    transform: scale(0.98);
+}
+
+.stFormSubmitButton > button {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white !important;
     border: none;
-    border-radius: 0.5rem;
-    padding: 0.75rem;
+    border-radius: 12px;
+    padding: 14px 24px;
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 16px;
+    min-height: 48px;
+    width: 100%;
 }
 
-/* Success messages */
-.success-box {
-    background: #d4edda;
-    border-left: 4px solid #28a745;
-    padding: 1rem;
-    border-radius: 0.5rem;
+/* --- INPUT FIELDS - Mobile Friendly --- */
+.stTextInput > div > div > input,
+.stNumberInput > div > div > input,
+.stTextArea > div > div > textarea {
+    font-size: 16px !important; /* Prevents iOS zoom on focus */
+    padding: 12px !important;
+    border-radius: 10px !important;
+    min-height: 48px;
 }
 
-/* Warning boxes */
-.warning-box {
-    background: #fff3cd;
-    border-left: 4px solid #ffc107;
-    padding: 1rem;
-    border-radius: 0.5rem;
+.stSelectbox > div > div {
+    font-size: 16px !important;
 }
 
-/* Metric containers */
+/* --- METRIC CARDS --- */
 div[data-testid="stMetric"] {
     background: #f8f9fa;
-    padding: 1rem;
-    border-radius: 0.5rem;
+    padding: 16px;
+    border-radius: 12px;
     border: 1px solid #e9ecef;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-/* Sidebar */
+div[data-testid="stMetric"] label {
+    font-size: 14px !important;
+}
+
+div[data-testid="stMetric"] div[data-testid="stMetricValue"] {
+    font-size: 28px !important;
+}
+
+/* --- SIDEBAR --- */
 section[data-testid="stSidebar"] {
     background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
 }
 
-section[data-testid="stSidebar"] .stMarkdown {
-    color: white;
+section[data-testid="stSidebar"] .stMarkdown,
+section[data-testid="stSidebar"] .stCaption {
+    color: rgba(255,255,255,0.9) !important;
 }
 
-/* Cards */
-div[data-testid="stExpander"] {
+section[data-testid="stSidebar"] button {
+    background: rgba(255,255,255,0.15) !important;
+    border: 1px solid rgba(255,255,255,0.2) !important;
+    color: white !important;
+}
+
+section[data-testid="stSidebar"] button[kind="primary"] {
+    background: linear-gradient(135deg, #667eea, #764ba2) !important;
+    border: none !important;
+}
+
+/* --- RADIO BUTTONS - Sidebar Nav --- */
+.stRadio > div {
+    gap: 4px;
+}
+
+.stRadio label {
+    padding: 10px 14px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    transition: background 0.2s;
+}
+
+.stRadio label:hover {
+    background: rgba(255,255,255,0.1) !important;
+}
+
+/* --- FORMS --- */
+div[data-testid="stForm"] {
     border: 1px solid #e0e0e0;
-    border-radius: 0.5rem;
-    margin-bottom: 0.5rem;
+    border-radius: 16px;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
-/* Progress bars */
-div[data-testid="stProgress"] > div {
-    background: linear-gradient(90deg, #667eea, #764ba2);
+/* --- EXPANDER --- */
+div[data-testid="stExpander"] {
+    border: 1px solid #e0e0e0 !important;
+    border-radius: 12px !important;
+    margin-bottom: 8px;
+    overflow: hidden;
 }
 
-/* Tab styling */
+div[data-testid="stExpander"] summary {
+    padding: 12px 16px !important;
+    font-weight: 500;
+}
+
+/* --- TABS --- */
 .stTabs [data-baseweb="tab-list"] {
-    gap: 2rem;
+    gap: 4px;
+    overflow-x: auto; /* Scrollable on mobile */
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap;
 }
 
 .stTabs [data-baseweb="tab"] {
     font-weight: 500;
-    padding: 0.5rem 1rem;
+    padding: 10px 16px;
+    font-size: 14px;
+    white-space: nowrap;
+    border-radius: 10px 10px 0 0;
 }
 
-/* Dataframe styling */
+/* --- PROGRESS BAR --- */
+div[data-testid="stProgress"] > div {
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    border-radius: 10px;
+}
+
+div[data-testid="stProgress"] {
+    height: 10px !important;
+    border-radius: 10px;
+}
+
+/* --- DATAFRAME/TABLE --- */
 div[data-testid="stDataFrame"] {
     border: 1px solid #e0e0e0;
-    border-radius: 0.5rem;
+    border-radius: 12px;
     overflow: hidden;
+}
+
+div[data-testid="stTable"] {
+    overflow-x: auto; /* Scrollable on mobile */
+    -webkit-overflow-scrolling: touch;
+}
+
+/* --- SUCCESS/INFO/WARNING/ERROR --- */
+div[data-testid="stAlert"] {
+    border-radius: 12px;
+    padding: 16px;
+}
+
+/* --- CHARTS --- */
+div[data-testid="stArrowVegaLiteChart"] {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* --- TIMER DISPLAY --- */
+.timer-display {
+    text-align: center;
+    padding: 1.5rem;
+    background: #f0f2f6;
+    border-radius: 16px;
+    margin: 1rem 0;
+}
+
+.timer-display h1 {
+    font-size: clamp(2rem, 10vw, 4rem);
+    font-family: 'Courier New', monospace;
+    color: #667eea;
+}
+
+/* --- PROTOCOL CARDS --- */
+.protocol-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+}
+
+/* --- ============================================ --- */
+/* --- MOBILE RESPONSIVE STYLES --- */
+/* --- ============================================ --- */
+
+@media screen and (max-width: 768px) {
+    
+    /* Tighter padding on mobile */
+    .stApp {
+        padding: 0.5rem !important;
+    }
+    
+    /* Stack columns vertically */
+    div[data-testid="column"] {
+        width: 100% !important;
+        flex: 1 1 100% !important;
+        padding: 4px 0 !important;
+    }
+    
+    /* Smaller metrics on mobile */
+    div[data-testid="stMetric"] {
+        padding: 12px;
+    }
+    
+    div[data-testid="stMetric"] div[data-testid="stMetricValue"] {
+        font-size: 22px !important;
+    }
+    
+    /* Full-width buttons */
+    .stButton > button {
+        width: 100%;
+    }
+    
+    /* Sidebar takes full width when open */
+    section[data-testid="stSidebar"] {
+        width: 100% !important;
+    }
+    
+    /* Smaller headers */
+    h2 {
+        font-size: 1.3rem !important;
+    }
+    
+    h3 {
+        font-size: 1.1rem !important;
+    }
+    
+    /* Compact forms */
+    div[data-testid="stForm"] {
+        padding: 12px;
+    }
+    
+    /* Scrollable tabs */
+    .stTabs [data-baseweb="tab-list"] {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 4px;
+    }
+    
+    .stTabs [data-baseweb="tab"] {
+        flex-shrink: 0;
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+    
+    /* Adjust expander */
+    div[data-testid="stExpander"] summary {
+        font-size: 14px;
+        padding: 10px 14px !important;
+    }
+    
+    /* Make checkboxes/radio easier to tap */
+    .stCheckbox label,
+    .stRadio label {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+}
+
+/* --- Small phones --- */
+@media screen and (max-width: 480px) {
+    .main-header {
+        font-size: 1.3rem;
+    }
+    
+    h2 {
+        font-size: 1.1rem !important;
+    }
+    
+    div[data-testid="stMetric"] div[data-testid="stMetricValue"] {
+        font-size: 18px !important;
+    }
+    
+    /* Even tighter spacing */
+    div[data-testid="stVerticalBlock"] {
+        gap: 0.5rem !important;
+    }
 }
